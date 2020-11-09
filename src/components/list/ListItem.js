@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { likePost, removePost } from '../../redux/actions';
 import LikeBtn from '../reusables/LikeBtn';
 import DeleteBtn from '../reusables/DeleteBtn';
 
 const StyledListItem = styled.li`
-  /* border: 1px solid red; */
   margin: 8px auto;
   width: 800px;
   @media only screen and (max-width: 900px) { width: 600px; }
@@ -17,16 +18,20 @@ const Link = styled.a`
   color: #c1c1c1;
 `;
 
-const ListItem = ({ post, index, likeAction, removeAction }) => (
-  <StyledListItem>
-    <LikeBtn
-      liked={ post.liked ? true : false }
-      index={ index }
-      likeAction={ likeAction }
-    />
-    <DeleteBtn index={ index } removeAction={ removeAction } />
-    <Link href={ post.url } target="_blank">{ post.title }</Link>
-  </StyledListItem>
-);
+const ListItem = ({ post }) => {
+  const dispatch = useDispatch();
+  const likeAction = () => dispatch(likePost(post.id));
+  const removeAction = () => dispatch(removePost(post.id));
+  return (
+    <StyledListItem>
+      <LikeBtn
+        liked={ post.liked ? true : false }
+        likeAction={ likeAction }
+      />
+      <DeleteBtn removeAction={ removeAction } />
+      <Link href={ post.url } target="_blank">{ post.title }</Link>
+    </StyledListItem>
+  );
+};
 
 export default ListItem;

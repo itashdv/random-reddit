@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { fetchPostCache } from '../../redux/actions';
 
 const Track = styled.div`
   position: relative;
   overflow: hidden;
   width: 800px;
   height: 30px;
-  /* background: #c1c1c1; */
   margin: 5px auto;
   @media only screen and (max-width: 900px) { width: 600px; }
   @media only screen and (max-width: 620px) { width: 400px; }
@@ -71,10 +72,12 @@ const Shape = styled.span`
   }
 `;
 
-const Runner = ({ name, setSubreddit }) => {
+const Runner = ({ topic }) => {
+  const dispatch = useDispatch();
+  const fetchPostAction = () => dispatch(fetchPostCache(topic.toLowerCase()));
   return (
     <Track>
-      <Shape onClick={ () => { setSubreddit(name) } }>{ name }</Shape>
+      <Shape onClick={ fetchPostAction }>{ topic }</Shape>
     </Track>
   );
 }

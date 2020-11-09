@@ -1,24 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
+import { getLoading, getPosts } from '../../redux/selectors';
 import ListItem from './ListItem';
 import Loader from '../reusables/Loader';
 
 const StyledList = styled.ul`
   width: 100%;
-  /* border: 1px solid #c3c3c3; */
   list-style-type: none;
 `;
 
-const List = ({ posts, setPosts, loading, likeAction, removeAction }) => {
+const List = () => {
+  const loading = useSelector(getLoading);
+  const posts = useSelector(getPosts);
   return (
     <StyledList>
-      { posts.map((post, index) => (
+      { posts.map(post => (
         <ListItem
-          key={ index }
-          post={ post.data }
-          index={ index }
-          likeAction={ likeAction }
-          removeAction={ removeAction }
+          key={ post.id }
+          post={ post }
         />
       )) }
       { loading && <Loader /> }

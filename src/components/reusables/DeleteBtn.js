@@ -7,9 +7,9 @@ const StyledDeleteBtn = styled.span`
   color: #c1c1c1;
 `;
 
-const DeleteBtn = ({ index, removeAction }) => (
+const DeleteBtn = ({ removeAction }) => (
   <StyledDeleteBtn>
-    <i onClick={ () => { removeAction(index) } } className="fa fa-trash-o" aria-hidden="true"></i>
+    <i onClick={ removeAction } className="fa fa-trash-o" aria-hidden="true"></i>
   </StyledDeleteBtn>
 );
 

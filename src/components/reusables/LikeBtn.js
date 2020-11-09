@@ -7,13 +7,14 @@ const StyledLikeBtn = styled.span`
   color: red;
 `;
 
-const LikeBtn = ({ liked, index, likeAction }) => (
+const LikeBtn = ({ liked, likeAction }) => (
   <StyledLikeBtn>
-    {
-      liked
-        ? <i onClick={ () => { likeAction(index) } } className="fa fa-heart" aria-hidden="true"></i>
-        : <i onClick={ () => { likeAction(index) } } className="fa fa-heart-o" aria-hidden="true"></i>
-    }
+    <i
+      onClick={ likeAction }
+      className={ `fa fa-heart${ liked ? '' : '-o' }` }
+      aria-hidden="true"
+    >
+    </i>
   </StyledLikeBtn>
 );
 
