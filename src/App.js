@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Header from './components/Header';
-import List from './components/list/List';
+import ListComponent from './components/list/ListComponent';
 import Alert from './components/reusables/Alert';
+import Loader from './components/reusables/Loader';
 
 const StyledApp = styled.div`
   max-width: 900px;
@@ -14,7 +15,8 @@ const App = () => {
     <StyledApp>
       <Header />
       <Alert />
-      <List />
+      <Loader />
+      <ListComponent />
     </StyledApp>
   );
 }

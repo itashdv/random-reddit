@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <StyledHeader>
       { topics.map((topic, index) => (
-        <Runner key={ index } topic={ topic.title } />
+        <Runner key={ index } topic={ topic } />
       )) }
     </StyledHeader>
   );

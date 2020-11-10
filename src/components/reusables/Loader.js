@@ -1,12 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
+import { getLoading } from '../../redux/selectors';
 
 const StyledLoader = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: 20px auto;
+  margin: 2px auto;
   width: 60px;
+  height: 12px;
 `;
 
 const StyledCircle = styled.div`
@@ -24,12 +27,19 @@ const StyledCircle = styled.div`
 
 const Circle = ({ delay }) => <StyledCircle delay={ delay } />;
 
-const Loader = () => (
-  <StyledLoader>
-    <Circle delay={ 0 } />
-    <Circle delay={ 0.4 } />
-    <Circle delay={ 0.8 } />
-  </StyledLoader>
-);
+const Loader = () => {
+  const loading = useSelector(getLoading);
+  return (
+    <StyledLoader>
+      { loading && (
+        <>
+          <Circle delay={ 0 } />
+          <Circle delay={ 0.4 } />
+          <Circle delay={ 0.8 } />
+        </>
+      ) }
+    </StyledLoader>
+  );
+};
 
 export default Loader;

@@ -1,9 +1,9 @@
-export const FETCH_FROM_CACHE = 'POST/FETCH_FROM_CACHE';
-export const FETCH_FROM_API = 'POST/FETCH_FROM_API';
+export const LOAD_POST = 'POST/LOAD_POST';
+export const FETCH_POSTS = 'POST/FETCH_POSTS';
+export const UPDATE_POSTS = 'POST/UPDATE_POSTS';
+export const LOAD_POSTS = 'POST/LOAD_POSTS';
 export const LIKE_POST = 'POST/LIKE_POST';
 export const REMOVE_POST = 'POST/REMOVE_POST';
-export const PUT_POST = 'POST/PUT_POST';
-export const UPDATE_POSTS = 'POST/UPDATE_POSTS';
 export const SHOW_LOADER = 'APP/SHOW_LOADER';
 export const HIDE_LOADER = 'APP/HIDE_LOADER';
 export const SHOW_ALERT = 'APP/SHOW_ALERT';

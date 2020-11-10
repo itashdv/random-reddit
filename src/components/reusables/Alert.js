@@ -5,19 +5,14 @@ import { getAlert } from '../../redux/selectors';
 
 const StyledAlert = styled.p`
   text-align: center;
-  border-radius: 5px;
-  padding: 10px;
   color: red;
+  height: 16px;
   font-size: 16px;
 `;
 
 const Alert = () => {
   const message = useSelector(getAlert);
-  return (
-    <>
-      { message && <StyledAlert>{ message }</StyledAlert> }
-    </>
-  );
+  return <StyledAlert>{ message && message }</StyledAlert>;
 }
 
 export default Alert;

@@ -7,3 +7,18 @@ html {
   background: #383B3D;
   font-family: sans-serif;
 }
+
+/* styling the scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #D21502 transparent;
+}
+*::-webkit-scrollbar {
+  width: 6px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #D21502
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import { fetchPostCache } from '../../redux/actions';
+import { loadPost } from '../../redux/actions';
 
 const Track = styled.div`
   position: relative;
@@ -74,7 +74,7 @@ const Shape = styled.span`
 
 const Runner = ({ topic }) => {
   const dispatch = useDispatch();
-  const fetchPostAction = () => dispatch(fetchPostCache(topic.toLowerCase()));
+  const fetchPostAction = () => dispatch(loadPost(topic.toLowerCase()));
   return (
     <Track>
       <Shape onClick={ fetchPostAction }>{ topic }</Shape>
